@@ -57,9 +57,9 @@ namespace A2
             
             if (reminderName.Equals("client"+Id.ToString()+"game"+gameId.ToString()))
             {
-                //ActorEventSource.Current.ActorMessage(this, reminderName + " is started");
-                //emulateGame();
-                //ActorEventSource.Current.ActorMessage(this, reminderName + " is finished");
+                ActorEventSource.Current.ActorMessage(this, reminderName + " is started");
+                emulateGame();
+                ActorEventSource.Current.ActorMessage(this, reminderName + " is finished");
 
                 IActorReminder reminder = GetReminder(reminderName);
                 if (reminder != null)
