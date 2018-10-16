@@ -21,8 +21,6 @@ namespace A2
     [StatePersistence(StatePersistence.Persisted)]
     internal class A2 : Actor, IA2, IRemindable
     {
-        
-    
         /// <summary>
         /// Initializes a new instance of A2
         /// </summary>
@@ -36,13 +34,13 @@ namespace A2
 
         public Task GetSomethingAsync(int clientId)
         {
-            TimeSpan delay = TimeSpan.FromSeconds(30);
+            
             TimeSpan period = TimeSpan.FromMilliseconds(-1);
           
             for (int gameId = 1; gameId <= 14; gameId++)
             {
                 TimeSpan dueTime = TimeSpan.FromSeconds(gameId * 10);
-
+               
                 string remainderName = "client"+Id.ToString()+"game"+gameId.ToString();
 
                 RegisterReminderAsync(remainderName, BitConverter.GetBytes(gameId), dueTime, period);
@@ -59,9 +57,9 @@ namespace A2
             
             if (reminderName.Equals("client"+Id.ToString()+"game"+gameId.ToString()))
             {
-                ActorEventSource.Current.ActorMessage(this, reminderName + " is started");
-                emulateGame();
-                ActorEventSource.Current.ActorMessage(this, reminderName + " is finished");
+                //ActorEventSource.Current.ActorMessage(this, reminderName + " is started");
+                //emulateGame();
+                //ActorEventSource.Current.ActorMessage(this, reminderName + " is finished");
 
                 IActorReminder reminder = GetReminder(reminderName);
                 if (reminder != null)
