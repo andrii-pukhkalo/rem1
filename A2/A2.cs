@@ -63,6 +63,8 @@ namespace A2
 
                 // some changes on master need to be in development
 
+                // merge via git cli
+
                 IActorReminder reminder = GetReminder(reminderName);
                 if (reminder != null)
                 {
