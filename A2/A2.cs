@@ -61,6 +61,8 @@ namespace A2
                 //emulateGame();
                 //ActorEventSource.Current.ActorMessage(this, reminderName + " is finished");
 
+                // some changes on master need to be in development
+
                 IActorReminder reminder = GetReminder(reminderName);
                 if (reminder != null)
                 {
